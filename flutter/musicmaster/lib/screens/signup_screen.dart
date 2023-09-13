@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:musicmaster/screens/home_screen.dart';
+// import 'package:musicmaster/screens/home_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:musicmaster/screens/signin_screen.dart';
 
@@ -154,7 +154,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         };
 
                         var response = await http.post(
-                          Uri.parse('http://localhost:3000/user/register'),
+                          Uri.parse('http://192.168.105.118:3000/user/register'),
                           headers: {
                             "Content-type": "application/json",
                           },
