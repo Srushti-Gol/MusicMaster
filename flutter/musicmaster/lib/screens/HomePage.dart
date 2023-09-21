@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musicmaster/screens/signin_screen.dart';
+import 'package:musicmaster/widgets/FavouriteList.dart';
 import 'package:musicmaster/widgets/MusicList.dart';
 import 'package:musicmaster/widgets/PlayList.dart';
 
@@ -136,7 +137,6 @@ class HomePage extends StatelessWidget {
                           Tab(text: "Playlists",),
                           Tab(text: "Favourites",),
                           Tab(text: "New",),
-                          Tab(text: "Collection",),
                           Tab(text: "Trending",),
                         ],
                       ),
@@ -144,9 +144,8 @@ class HomePage extends StatelessWidget {
                         flex: 1,
                         child: TabBarView(children: [
                           MusicList(user: user),
-                          PlayList(),
-                          MusicList(user: user),
-                          MusicList(user: user),
+                          PlayList(user: user),
+                          FavouriteList(user: user),
                           MusicList(user: user),
                           MusicList(user: user),
 
