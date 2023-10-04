@@ -3,6 +3,8 @@ import 'package:musicmaster/screens/signin_screen.dart';
 import 'package:musicmaster/widgets/FavouriteList.dart';
 import 'package:musicmaster/widgets/MusicList.dart';
 import 'package:musicmaster/widgets/PlayList.dart';
+import 'package:musicmaster/widgets/NewSongList.dart';
+import 'package:musicmaster/widgets/TreandingList.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -14,7 +16,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // var username = user['username'];
     return DefaultTabController(
-      length: 6,
+      length: 5,
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -146,8 +148,8 @@ class HomePage extends StatelessWidget {
                           MusicList(user: user),
                           PlayList(user: user),
                           FavouriteList(user: user),
-                          MusicList(user: user),
-                          MusicList(user: user),
+                          NewSongList(user: user),
+                          TreandingList(user: user),
 
                       ],))
                   ],

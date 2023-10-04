@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-// import 'package:musicmaster/screens/home_screen.dart';
+// import 'package:musify/screens/home_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:musicmaster/screens/signin_screen.dart';
 import '../db/config.dart';

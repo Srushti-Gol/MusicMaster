@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../db/config.dart';
 
-class FavouriteList extends StatefulWidget {
+class NewSongList extends StatefulWidget {
   final dynamic user;
 
-  FavouriteList({
+  NewSongList({
     required this.user,
   });
 
   @override
-  _FavouriteListState createState() => _FavouriteListState();
+  _NewSongListState createState() => _NewSongListState();
 }
 
-class _FavouriteListState extends State<FavouriteList> {
+class _NewSongListState extends State<NewSongList> {
   List<dynamic> songs = [];
 
   @override
@@ -24,20 +24,15 @@ class _FavouriteListState extends State<FavouriteList> {
   }
 
   Future<void> fetchData() async {
-    print(widget.user);
-    var userId = widget.user?['_id'];
-    var reqbody = {"userId": userId};
-    var response = await http.post(
-      Uri.parse('$uri/user/getfavouritesongs'),
+    var response = await http.get(
+      Uri.parse('$uri/user/newsongs'),
       headers: {"Content-type": "application/json"},
-      body: jsonEncode(reqbody),
     );
 
     var res = jsonDecode(response.body);
     setState(() {
       songs = res['songs'];
     });
-    // print(res);
   }
 
   @override
@@ -65,7 +60,7 @@ class _FavouriteListState extends State<FavouriteList> {
                     InkWell(
                       onTap: () async {
                         var reqbody = {
-                          "songId": item?['_id'],
+                          "songId": item['_id'],
                           "userId": widget.user['_id'],
                         };
 
