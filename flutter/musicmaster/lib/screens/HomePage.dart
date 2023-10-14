@@ -5,6 +5,7 @@ import 'package:musicmaster/widgets/MusicList.dart';
 import 'package:musicmaster/widgets/PlayList.dart';
 import 'package:musicmaster/widgets/NewSongList.dart';
 import 'package:musicmaster/widgets/TreandingList.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -51,11 +52,9 @@ class HomePage extends StatelessWidget {
                         InkWell(
                           onTap: () {},
                           child: ElevatedButton(
-                              onPressed: () {
-                                // FirebaseAuth.instance.signOut().then((value) {
-                                //       print("Signout"); 
-                                //       Navigator.push(context, MaterialPageRoute(builder: (context) => const SignInScreen()));
-                                // });  
+                              onPressed: () async{
+                               SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('token');  
                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SignInScreen()));
                               },
                               style: ElevatedButton.styleFrom(

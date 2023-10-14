@@ -15,22 +15,11 @@ class PlayListPage extends StatefulWidget {
 
 class _PlayListPageState extends State<PlayListPage> {
   List<dynamic> songs = [];
-
-  void shuffleSongs() {
-    print("hello");
-    final random = Random();
-    for (var i = songs.length - 1; i > 0; i--) {
-      final j = random.nextInt(i + 1);
-      final temp = songs[i];
-      songs[i] = songs[j];
-      songs[j] = temp;
-    }
-  }
+  
 
   @override
   void initState() {
     super.initState();
-    shuffleSongs();
   }
 
   @override
@@ -71,14 +60,14 @@ class _PlayListPageState extends State<PlayListPage> {
                           size: 30,
                         ),
                       ),
-                      InkWell(
-                        onTap: shuffleSongs,
-                        child: Icon(
-                          Icons.more_vert,
-                          color: Color(0xff899ccf),
-                          size: 30,
-                        ),
-                      )
+                      // InkWell(
+                      //   onTap: ,
+                      //   child: Icon(
+                      //     Icons.more_vert,
+                      //     color: Color(0xff899ccf),
+                      //     size: 30,
+                      //   ),
+                      // )
                     ]),
               ),
               SizedBox(
