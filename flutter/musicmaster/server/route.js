@@ -53,14 +53,17 @@ router.post("/addsong", async (req, res) => {
   try{ 
   console.log(req.body);
         
-  const { title , singer , url , imageUrl } = req.body;
+  const { title , singer , url , imageUrl, trendingScore } = req.body;
   // const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
 
+  var releaseDate = new Date();
   const song = new Song({
     title,
     singer,
     url,
-    imageUrl
+    imageUrl,
+    releaseDate,
+    trendingScore
   });
 
   await song.save();
