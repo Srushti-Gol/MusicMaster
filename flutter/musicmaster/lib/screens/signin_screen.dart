@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 import 'home_screen.dart';
 import 'signup_screen.dart';
 import '../db/config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'dart:convert'; // Keep this import for JSON encoding/decoding.
 
@@ -110,8 +110,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         };
 
                         var response = await http.post(
-                          Uri.parse(
-                              '$uri/user/login'), // Replace with your API URL
+                          Uri.parse('$uri/user/login'), // Replace with your API URL
                           headers: {
                             "Content-type": "application/json",
                           },
@@ -121,7 +120,8 @@ class _SignInScreenState extends State<SignInScreen> {
                         if (response.statusCode == 201) {
                           var res = jsonDecode(response.body);
                           print(res['user']);
-                          String userJson = jsonEncode(res['user']);
+
+                           String userJson = jsonEncode(res['user']);
                           SharedPreferences prefs =
                               await SharedPreferences.getInstance();
                           prefs.setString('token', userJson);

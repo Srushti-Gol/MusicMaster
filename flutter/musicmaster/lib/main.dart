@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:musicmaster/screens/signin_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:musicmaster/screens/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'dart:convert';
 
 void main() async {
@@ -11,7 +10,7 @@ void main() async {
   String? token = prefs.getString('token');
   dynamic user;
   if (token != null) {
-    user = jsonDecode(token); 
+    user = jsonDecode(token);
   }
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
